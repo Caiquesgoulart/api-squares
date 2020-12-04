@@ -1,10 +1,11 @@
 const express = require('express')
-const bodyParser = require('body-parser')
 const mongodb = require('mongoose')
 const requireDir = require('require-dir')
+const cors = require('cors')
 const app = express()
 
 app.use(express.json())
+app.use(cors())
 
 mongodb.connect(
     'mongodb://localhost:27017/territories',
@@ -14,6 +15,6 @@ mongodb.connect(
     }
 )
 requireDir('./models')
-app.use("/territories", require('./routes'))
+app.use("/", require('./routes'))
 
 app.listen(3000)

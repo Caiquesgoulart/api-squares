@@ -1,38 +1,41 @@
 const mongoose = require('mongoose')
+const mongoosePag = require('mongoose-paginate')
 const square = new mongoose.Schema({
     name: {
         type: String,
-        require: true
+        required: true
     },
     start: { 
         x: {
             type: Number,
-            require: true
+            required: true
     },
         y: {
             type: Number,
-            require: true
-        }
+            required: true
+        },
     },
     end: {
         x: {
             type: Number,
-            require: true
+            required: true
         },
         y: {
             type: Number,
-            require: true
-        }
+            required: true
+        },
     },
     area: {
         type: Number,
-        require: false,
+        required: false,
         default: 2500
     },
     paintedArea: {
         type: Number,
-        require: false
+        required: false,
+        default: 0
     }
 })
 
+square.plugin(mongoosePag)
 mongoose.model('square', square)
