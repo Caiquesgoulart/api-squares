@@ -47,5 +47,15 @@ module.exports = {
             'start.y': req.params.y
         })
         return res.json(area)
+    },
+    async paint(req, res){
+        const pintar = await squareController.findByIdAndUpdate(req.params.id, req.body, {new: true})
+        console.log('teste')
+        return res.json(pintar)
+    },
+    async removePaint(req, res){
+        const descolorir = await squareController.findByIdAndUpdate(req.params.id, req.body, {new: false})
+        console.log('teste')
+        return res.json(descolorir)
     }
 }

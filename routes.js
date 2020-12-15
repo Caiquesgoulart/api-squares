@@ -11,5 +11,7 @@ routes.get('/territories/:id', territories.searchById)
 routes.post('/territories', territories.createTerritory)
 routes.delete('/territories/:id', territories.deleteById)
 routes.get('/territories/:x/:y', territories.getArea)
+routes.put('/territories/:id', territories.paint)
+routes.put('/territories/:id', territories.removePaint)
 
 module.exports = routes

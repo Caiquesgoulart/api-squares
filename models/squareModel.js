@@ -34,6 +34,11 @@ const square = new mongoose.Schema({
         type: Number,
         required: false,
         default: 0
+    },
+    isPainted: {
+        type: Boolean,
+        required: false,
+        default: false
     }
 })
 
